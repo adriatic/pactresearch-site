@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exporting PACT Research to Obsidian — PACT Research Blog</title>
+    <meta name="description" content="PACT Research blog." />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #0d0d0d;
+            color: #d4d4d4;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        a {
+            color: #4ec94e;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid #222;
+            font-size: 0.9rem;
+        }
+
+        nav .brand {
+            font-weight: 700;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        nav .links {
+            display: flex;
+            gap: 1.5rem;
+            margin-left: auto;
+        }
+
+        nav .links a {
+            color: #888;
+        }
+
+        nav .links a:hover {
+            color: #fff;
+        }
+
+        nav .cta {
+            background: #4ec94e;
+            color: #000;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        nav .cta:hover {
+            background: #3db83d;
+            text-decoration: none;
+        }
+
+        .article-wrap {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 6rem;
+        }
+
+        .back {
+            display: inline-block;
+            color: #555;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        .back:hover {
+            color: #4ec94e;
+        }
+
+        .meta {
+            font-size: 0.82rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.25;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 2.5rem 0 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #bbb;
+        }
+
+        ul,
+        ol {
+            margin: 0 0 1.2rem 1.5rem;
+            color: #bbb;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        code {
+            font-family: "SF Mono", "Fira Code", monospace;
+            font-size: 0.85em;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 3px;
+            padding: 0.1em 0.4em;
+            color: #4ec94e;
+        }
+
+        pre {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 6px;
+            padding: 1.2rem 1.4rem;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            color: #ccc;
+            font-size: 0.88em;
+        }
+
+        blockquote {
+            border-left: 3px solid #4ec94e;
+            padding: 0.6rem 1.2rem;
+            margin: 2rem 0;
+            color: #888;
+            font-style: italic;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #222;
+            margin: 2.5rem 0;
+        }
+
+        .email-line {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 2rem;
+        }
+
+        .email-line a {
+            color: #4ec94e;
+        }
+
+        footer {
+            border-top: 1px solid #1a1a1a;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.78rem;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a class="brand" href="https://pactresearch.net/">PACTresearch.net</a>
+        <div class="links">
+            <a href="https://pactresearch.net/#how">How it works</a>
+            <a href="https://pactresearch.net/#articles">Articles</a>
+            <a href="https://pactresearch.net/blog">Blog</a>
+            <a href="https://pactresearch.net/#beta">Beta access</a>
+        </div>
+        <a class="cta" href="https://pactresearch.net/#beta">Request access</a>
+    </nav>
+
+    <div class="article-wrap">
+        <a class="back" href="https://pactresearch.net/blog">← Blog</a>
+        <div class="meta">May 23, 2026 · Nikolaj Ivancic</div>
+        <h1>Exporting PACT Research to Obsidian</h1>
+<p><em>May 23, 2026 · Nikolaj Ivancic</em></p>
+<hr>
+<p>PACT stores every prompt and response permanently in a local SQLite database. That is what makes structured research possible — cells are addressable, chainable, and never lost. But the database is PACT&#39;s internal format, not something you can browse, annotate, or link from other notes.</p>
+<p>Obsidian is the natural complement. PACT is where the research happens. Obsidian is where it lives afterward — cross-linked, tagged, and integrated with everything else you know.</p>
+<p>As of today, PACT exports any notebook directly to your Obsidian vault with one click.</p>
+<h2>How it works</h2>
+<p>In the Explorer panel, hover over any notebook. A small <code>↑</code> appears on the right. Hover over it and it expands to two choices:</p>
+<ul>
+<li><strong>↑.pact</strong> — exports the notebook as a signed <code>.pact</code> file for sharing with other PACT users</li>
+<li><strong>↑Ob</strong> — exports the notebook as a Markdown file directly to your Obsidian vault</li>
+</ul>
+<p>Click <strong>↑Ob</strong>. The file appears immediately at:</p>
+<pre><code>~/pact/pact_exports/&lt;Notebook Name&gt;.md
+</code></pre>
+<p>No dialog. No confirmation. The file is there.</p>
+<h2>What the exported file contains</h2>
+<p>The Markdown file preserves the full notebook structure:</p>
+<pre><code># Notebook Name
+
+&gt; System Prompt (if set)
+
+## Discussion Name
+
+**Prompt:** the exact prompt text
+
+**Response:** the full response
+
+---
+
+## Next Discussion
+
+...
+</code></pre>
+<p>Every discussion, every cell, in chronological order. The system prompt is preserved as a blockquote at the top. Nothing is summarized or truncated.</p>
+<h2>Why two export formats</h2>
+<p>The <code>.pact</code> export is for collaboration — it carries a cryptographic signature that other PACT users can verify. The Obsidian export is for your own knowledge base — it is plain Markdown, readable by anything, permanent in a format that will outlast any tool.</p>
+<p>Think of them as serving different purposes. <code>.pact</code> is the research artifact you share. The Obsidian export is the knowledge you keep.</p>
+<h2>Adding new blog posts to pactresearch.net</h2>
+<p>This article documents the process as it currently stands:</p>
+<ol>
+<li><strong>Write the post</strong> as a Markdown file — the same format as this one</li>
+<li><strong>Convert to HTML</strong> matching the site template (see <code>blog/pactresearch-net-is-live.html</code> in the repo as the reference)</li>
+<li><strong>Save</strong> to <code>~/Work/pactresearch-site/blog/&lt;slug&gt;.html</code></li>
+<li><strong>Update</strong> <code>~/Work/pactresearch-site/blog/index.html</code> with the new post entry</li>
+<li><strong>Commit and push</strong> to <code>github.com/adriatic/pactresearch-site</code></li>
+<li><strong>Deploy</strong> to the Vultr server at <code>144.202.109.14</code> — SSH access to be restored</li>
+</ol>
+<p>Step 6 is currently blocked by a firewall issue on the Vultr instance. Until that is resolved, the HTML file is ready and the repo is the source of truth.</p>
+<hr>
+<blockquote>
+<p>Chat disappears. Research shouldn&#39;t.</p>
+</blockquote>
+<p>Questions or thoughts? Email <a href="mailto:nikolaj.ivancic@gmail.com">nikolaj.ivancic@gmail.com</a></p>
+
+        <br />
+        <a class="back" href="https://pactresearch.net/blog">← Back to blog</a>
+    </div>
+
+    <footer>
+        Copyright © 2026 Pact Research LLC · Rocklin, CA ·
+        <a href="https://pactresearch.net">pactresearch.net</a>
+    </footer>
+
+</body>
+
+</html>

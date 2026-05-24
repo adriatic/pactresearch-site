@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Model tiers, signed notebook export, config management, and the full story of what each menu item does in PACT v0.0.3.">
+  <title>PACT v0.0.3 — what's new in the global menu — PACT Research Blog</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0f0f; --surface: #1a1a1a; --border: #2a2a2a;
+      --text: #d4d4d4; --muted: #888; --accent: #0e639c;
+      --accent-light: #1e7ab8; --green: #4ec94e;
+      --font-mono: "JetBrains Mono", "Fira Code", monospace;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.7; }
+    a { color: var(--accent-light); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(15,15,15,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 52px; }
+    .nav-logo { font-family: var(--font-mono); font-size: 1em; color: var(--text); font-weight: 600; }
+    .nav-links { display: flex; gap: 2rem; font-size: 0.9em; }
+    .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-cta { background: var(--accent); color: #fff; padding: 6px 16px; border-radius: 4px; font-size: 0.85em; }
+    .nav-cta:hover { background: var(--accent-light); text-decoration: none; }
+    .post-wrap { max-width: 720px; margin: 0 auto; padding: 60px 2rem 100px; }
+    .post-back { font-size: 0.88em; color: var(--muted); margin-bottom: 2.5rem; display: inline-block; }
+    .post-back:hover { color: var(--text); text-decoration: none; }
+    .post-meta { font-family: var(--font-mono); font-size: 0.78em; color: var(--muted); margin-bottom: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .post-meta span { background: var(--surface); border: 1px solid var(--border); padding: 2px 10px; border-radius: 3px; }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); color: #fff; line-height: 1.2; margin-bottom: 2rem; }
+    .post-body h2 { font-size: 1.2rem; color: #fff; margin: 2.5rem 0 0.75rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .post-body h3 { font-size: 1rem; color: var(--accent-light); margin: 1.5rem 0 0.5rem; font-family: var(--font-mono); }
+    .post-body p { color: var(--text); margin-bottom: 1.2rem; }
+    .post-body ul { color: var(--text); margin: 0 0 1.2rem 1.5rem; }
+    .post-body li { margin-bottom: 0.4rem; }
+    .post-body code { font-family: var(--font-mono); font-size: 0.88em; background: var(--surface); border: 1px solid var(--border); padding: 1px 6px; border-radius: 3px; color: var(--accent-light); }
+    .menu-bar { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 10px 16px; font-family: var(--font-mono); font-size: 0.82em; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 1.5rem 0; }
+    .menu-btn { border: 1px solid #555; border-radius: 4px; padding: 2px 10px; color: #ccc; background: transparent; }
+    .menu-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .led { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); vertical-align: middle; }
+    .led-red { background: #e05252; box-shadow: 0 0 6px #e05252; }
+    .tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+    .tier-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 16px; }
+    .tier-card.selected { border-color: var(--accent); background: #0e639c11; }
+    .tier-card h4 { color: #fff; font-size: 0.95em; margin-bottom: 6px; }
+    .tier-card p { color: var(--muted); font-size: 0.82em; font-family: var(--font-mono); }
+    blockquote { border-left: 2px solid var(--accent); padding: 12px 20px; margin: 1.5rem 0; color: var(--muted); font-style: italic; }
+    .post-footer { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.88em; color: var(--muted); }
+    footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--muted); font-size: 0.82em; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">PACTresearch.net</span>
+  <div class="nav-links">
+    <a href="https://pactresearch.net/#how">How it works</a>
+    <a href="https://pactresearch.net/#articles">Articles</a>
+    <a href="https://pactresearch.net/#blog">Blog</a>
+    <a href="https://pactresearch.net/#beta">Beta access</a>
+  </div>
+  <a href="https://pactresearch.net/#beta" class="nav-cta">Request access</a>
+</nav>
+
+<div class="post-wrap">
+  <a href="https://pactresearch.net/#blog" class="post-back">← Blog</a>
+
+  <div class="post-meta">
+    <span>May 22, 2026</span>
+    <span>Development</span>
+    <span>Nikolaj Ivancic</span>
+  </div>
+
+  <h1>PACT v0.0.3 — what's new in the global menu</h1>
+
+  <div class="post-body">
+
+    <p>PACT's global menu bar has grown. What started as a single Clear button is now a complete control surface for managing your research environment. This post walks through every item — what it does, why it exists, and how it fits the research workflow.</p>
+
+    <div class="menu-bar">
+      <strong style="color:#fff;margin-right:4px">PACT</strong>
+      <span class="menu-btn">Clear</span>
+      <span class="menu-btn">Clear Responses</span>
+      <span class="menu-btn">+ Notebook</span>
+      <span class="menu-btn">Import</span>
+      <span class="menu-btn active">Model</span>
+      <span style="margin-left:auto;color:#555;font-size:0.85em">v0.0.3</span>
+      <span class="led"></span>
+    </div>
+
+    <h2>The status LED</h2>
+
+    <p>The small circle at the right of the context bar is not decoration. <span class="led"></span> green means PACT is idle — ready to accept a prompt. <span class="led led-red"></span> red means a request is in flight.</p>
+
+    <p>Every control that could cause problems during an active run — including the new Model button — is disabled when the LED is red. You cannot change the model mid-run. You cannot clear responses while streaming. The LED enforces this silently.</p>
+
+    <h2>Clear</h2>
+
+    <p>Clears the current view — removes cells from the display and empties the composer. This is a local UI action only. Nothing is deleted from the database. Reload the discussion and everything comes back.</p>
+
+    <p>Use it when you want a clean working surface without losing your research.</p>
+
+    <h2>Clear Responses</h2>
+
+    <p>This one is permanent. It deletes all responses in the active discussion from the database. The prompt is preserved — the discussion remains, but the cells are gone and cannot be recovered.</p>
+
+    <p>A confirmation dialog appears before anything is deleted. Clear Responses only appears when a discussion is active.</p>
+
+    <h2>+ Notebook</h2>
+
+    <p>Opens the new notebook dialog. Two fields: a name and an optional system prompt.</p>
+
+    <p>The system prompt is the most underused feature in PACT. Set it once per notebook and it applies silently to every discussion — no need to repeat it in every prompt. For a medication interactions notebook: <code>You are a clinical pharmacist specializing in drug interactions.</code> For a legal research notebook: <code>You are a senior attorney specializing in contract law.</code> The AI stays in role for the entire notebook without you thinking about it.</p>
+
+    <h2>Import</h2>
+
+    <p>Imports a <code>.pact</code> file — a signed notebook exported from another PACT instance. The signature is verified before import. If the file was tampered with or the signing server is unreachable, import is blocked or warned.</p>
+
+    <p>This is how research is shared. Export a notebook, send the <code>.pact</code> file, and the recipient imports it and continues exactly where you left off — with full cell history, all references intact.</p>
+
+    <h2>Model</h2>
+
+    <p>This is new in v0.0.3. The Model button opens a tier selection dialog — only available when the LED is green.</p>
+
+    <div class="tier-grid">
+      <div class="tier-card selected">
+        <h4>Standard</h4>
+        <p>GPT — gpt-4.1<br>Claude — claude-sonnet-4-6</p>
+      </div>
+      <div class="tier-card">
+        <h4>Economy</h4>
+        <p>GPT — gpt-4.1-mini<br>Claude — claude-haiku-4-5</p>
+      </div>
+    </div>
+
+    <p>The tier applies globally. When you select Economy, the composer dropdown automatically updates to reflect the active model — <code>GPT-4.1 mini</code> or <code>Haiku</code> instead of <code>GPT-4.1</code> or <code>Sonnet</code>. No separate action required.</p>
+
+    <p>The use case that drove this feature: Marc, one of our beta testers, described his research process as drilling. You start wide — exploring a domain, generating hypotheses, mapping the territory. That work doesn't need the most expensive model. Once you know where to drill precisely, you switch to Standard for the responses that matter.</p>
+
+    <blockquote>Use Economy for initial exploration. Switch to Standard when you know where to drill.</blockquote>
+
+    <p>Gemini will slot in as a third provider in a future release. The tier architecture is already built to accommodate it — adding a new column to the tier table is all that's needed.</p>
+
+    <h2>The config system</h2>
+
+    <p>Not visible in the menu bar, but worth documenting. When PACT launches without a <code>config.json</code>, it shows a setup screen instead of the research interface. The setup screen collects your name, email, context, and API keys for both providers.</p>
+
+    <p>Saving config writes <code>config.json</code> to the extension directory, initializes the LLM router with the provided keys, and dismisses the setup screen in one step. A VS Code notification confirms the save. The setup screen never appears again unless the config is missing or both API keys are blank.</p>
+
+    <h2>What's next</h2>
+
+    <ul>
+      <li>PACT-to-Obsidian integration — export cells directly to your Obsidian vault</li>
+      <li>Parameterized prompt templates — fill in variables once, run the full chain automatically</li>
+      <li>The PACT-man explainer — a short animation showing how human and PACT collaborate, solving the onboarding problem</li>
+    </ul>
+
+    <p>If you are using PACT for research and have feedback, reach out at <a href="mailto:nikolaj.ivancic@gmail.com">nikolaj.ivancic@gmail.com</a>.</p>
+
+  </div>
+
+  <div class="post-footer">
+    <a href="https://pactresearch.net/#blog">← Back to blog</a>
+  </div>
+</div>
+
+<footer>
+  Copyright © 2026 Pact Research LLC · Rocklin, CA · <a href="https://pactresearch.net">pactresearch.net</a>
+</footer>
+
+</body>
+</html>

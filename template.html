@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}} — PACT Research Blog</title>
+    <meta name="description" content="PACT Research blog." />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #0d0d0d;
+            color: #d4d4d4;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        a {
+            color: #4ec94e;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid #222;
+            font-size: 0.9rem;
+        }
+
+        nav .brand {
+            font-weight: 700;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        nav .links {
+            display: flex;
+            gap: 1.5rem;
+            margin-left: auto;
+        }
+
+        nav .links a {
+            color: #888;
+        }
+
+        nav .links a:hover {
+            color: #fff;
+        }
+
+        nav .cta {
+            background: #4ec94e;
+            color: #000;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        nav .cta:hover {
+            background: #3db83d;
+            text-decoration: none;
+        }
+
+        .article-wrap {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 6rem;
+        }
+
+        .back {
+            display: inline-block;
+            color: #555;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        .back:hover {
+            color: #4ec94e;
+        }
+
+        .meta {
+            font-size: 0.82rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.25;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 2.5rem 0 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #bbb;
+        }
+
+        ul,
+        ol {
+            margin: 0 0 1.2rem 1.5rem;
+            color: #bbb;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        code {
+            font-family: "SF Mono", "Fira Code", monospace;
+            font-size: 0.85em;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 3px;
+            padding: 0.1em 0.4em;
+            color: #4ec94e;
+        }
+
+        pre {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 6px;
+            padding: 1.2rem 1.4rem;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            color: #ccc;
+            font-size: 0.88em;
+        }
+
+        blockquote {
+            border-left: 3px solid #4ec94e;
+            padding: 0.6rem 1.2rem;
+            margin: 2rem 0;
+            color: #888;
+            font-style: italic;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #222;
+            margin: 2.5rem 0;
+        }
+
+        .email-line {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 2rem;
+        }
+
+        .email-line a {
+            color: #4ec94e;
+        }
+
+        footer {
+            border-top: 1px solid #1a1a1a;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.78rem;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a class="brand" href="https://pactresearch.net/">PACTresearch.net</a>
+        <div class="links">
+            <a href="https://pactresearch.net/#how">How it works</a>
+            <a href="https://pactresearch.net/#articles">Articles</a>
+            <a href="https://pactresearch.net/blog">Blog</a>
+            <a href="https://pactresearch.net/#beta">Beta access</a>
+        </div>
+        <a class="cta" href="https://pactresearch.net/#beta">Request access</a>
+    </nav>
+
+    <div class="article-wrap">
+        <a class="back" href="https://pactresearch.net/blog">← Blog</a>
+        <div class="meta">{{meta}}</div>
+        {{body}}
+        <br />
+        <a class="back" href="https://pactresearch.net/blog">← Back to blog</a>
+    </div>
+
+    <footer>
+        Copyright © 2026 Pact Research LLC · Rocklin, CA ·
+        <a href="https://pactresearch.net">pactresearch.net</a>
+    </footer>
+
+</body>
+
+</html>
