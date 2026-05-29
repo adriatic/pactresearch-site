@@ -29,6 +29,6 @@ jobs:
           host: 45.77.191.105
           username: root
           key: ${{ secrets.VULTR_SSH_KEY }}
-          source: "index.html,blog/*.html"
+          source: "index.html,blog/*.html,blog/*.png,blog/*.jpg,blog/*.gif,blog/*.webp"
           target: /var/www/pactresearch.net
           strip_components: 0
