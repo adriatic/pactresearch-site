@@ -33,8 +33,9 @@ for (const file of files) {
   const excerpt = excerptMatch ? excerptMatch[1].trim() : "";
 
   // Build article HTML
-  const body = marked(md).replace(/src="(?!http|\/)(.*?)"/g, 'src="/blog/$1"');
-  const html = TEMPLATE
+const body = marked(md)
+    .replace(/src="(?!http|\/)(.*?)"/g, 'src="/blog/$1"')
+    .replace(/<img /g, '<img style="display:block;margin:1rem auto;max-width:80%;height:auto;border-radius:4px;" ');  const html = TEMPLATE
     .replace("{{title}}", title)
     .replace("{{meta}}", meta)
     .replace("{{body}}", body);
