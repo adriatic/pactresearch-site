@@ -170,6 +170,62 @@
       text-decoration: none;
     }
 
+    /* SAMPLES TEASER */
+    .samples-teaser {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 2rem;
+      background: var(--surface);
+    }
+
+    .samples-teaser-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .samples-teaser-text .label {
+      font-family: var(--font-mono);
+      font-size: 0.75em;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .samples-teaser-text h2 {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+
+    .samples-teaser-text p {
+      color: var(--muted);
+      font-size: 0.92em;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    .samples-teaser-domains {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 1rem;
+    }
+
+    .domain-pill {
+      font-family: var(--font-mono);
+      font-size: 0.75em;
+      color: var(--accent-light);
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      padding: 3px 10px;
+    }
+
     /* SECTION */
     section {
       padding: 80px 2rem;
@@ -416,6 +472,28 @@
     </div>
   </div>
 
+  <!-- SAMPLES TEASER -->
+  <div class="samples-teaser">
+    <div class="samples-teaser-inner">
+      <div class="samples-teaser-text">
+        <div class="label">See it in action</div>
+        <h2>Real research. Real questions. Real PDFs.</h2>
+        <p>Browse the samples collection to see what PACT research looks like — from the opening question through the
+          guided conversation to the delivered document. Every sample is free to read and download.</p>
+        <div class="samples-teaser-domains">
+          <span class="domain-pill">Physics</span>
+          <span class="domain-pill">Medicine</span>
+          <span class="domain-pill">Music History</span>
+          <span class="domain-pill">Economics</span>
+          <span class="domain-pill">Cycling</span>
+          <span class="domain-pill">Research Methodology</span>
+        </div>
+      </div>
+      <a href="https://app.pactresearch.net/samples" class="btn-primary"
+        style="white-space: nowrap; flex-shrink: 0;">Browse research samples →</a>
+    </div>
+  </div>
+
   <section id="how">
     <div class="section-inner">
       <div class="section-label">The concept</div>
@@ -525,7 +603,6 @@
             <p>Two alternative approaches to structuring AI-assisted research workflows.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -543,7 +620,7 @@
           <p>Model tiers, signed notebook export, config management, and the full story of what each menu item does.</p>
         </div>
         <div class="blog-card"><time datetime="2026-05-13">May 13, 2026</time> <span
-            style="font-size:0.78em;color:var(--muted);font-family:var(--font-mono)">Research</span>
+            style="font-size:0.78em;color:var(--muted);font-family:var(--font-mono)">Development</span>
           <h3><a href="/blog/pactresearch-net-is-live.html">pactresearch.net is live</a></h3>
           <p>The PACT Research website launched today. A brief note on what it represents and what comes next for the
             research network.</p>
